@@ -1,33 +1,60 @@
-Tema: Lan Party
+# Tournament Management System for Gaming Events
 
-Descriere:
--Am folosit o lista simplu inlantuita pentru a retine echipele  si un vector de pointeri
-pentru a retine jucatorii din fiecare echipa, o structura pentru coada, arbore BST si arbore AVL.
+## Overview
 
+This project is a **Tournament Management System** designed for organizing gaming tournaments. It leverages advanced data structures to manage teams, players, match rounds, rankings, and more. The system includes efficient algorithms for team management, scheduling, and ranking, enabling seamless operation of gaming tournaments from start to finish.
 
--Pentru cerinta 1 am citit datele din fisierul d.in , prima data numarul de echipa,numele echipei si am adaugat jucatorii in vector, inclusiv datele despre acestia, apoi am folosit
-functia  displayToFile(Node *head, FILE *f); pentru a parcurge lista de echipe si a o afisa
+## Features
 
+- **Team Management**: Allows the registration of teams with players, storing their information efficiently.
+- **Tournament Scheduling**: Automatically handles the scheduling of matches between teams based on predefined tasks.
+- **Rankings**: Computes and displays rankings for teams after each round based on their performance.
+- **Advanced Data Structures**: Uses data structures like **Linked Lists**, **Binary Search Trees (BST)**, and **AVL Trees** for optimal storage and access.
+- **File I/O Operations**: Reads tournament and team data from files and outputs the results into specified files.
+  
 
--Pentru cerinta 2  am folosit functiile deleteTeam(Node** headRef, echipa* key) (care sterge o echipa (nod) din lista simplu inlantuita ), teamPoints(echipa* team)( care calculeaza scorul de echipa). Pe acestea le-am apelat in  functia newTeamslist(Node **head, int nrEchipe) pentru a sterge echipele cu cel mai mic teamScore pana am ajuns la un nr(cel mai mare ) de echipe putere a lui 2.
+## Files
 
+- `fisier0`: Input file containing tasks for the tournament.
+- `fisier1`: Input file containing team and player information.
+- `fisier2`: Output file to display results such as rankings and match outcomes.
 
--Pentru cerinta 3 am folosit  functiile : echipacastigatoare(echipa* wTeam, echipa* lTeam, Node** wStack, Node** lStack) (care  incrementeaza TeamScore-ul echipei castigatoare cu 1 si care pune in functie de teamScore in WStack sau LStack), dupa functia egalitate pentru cazul echipelor cu acelasi scor, pe acestea le am apelat in functia procesareechipe(echipa* team1, echipa* team2, Node** wStack, Node** lStack) pentru toate cele 3 cazuri (>,<,=)
-Am folosit si functia addTeamsToQueue(Node* head, Queue* queue) pentru a adauga echipele din lista in coada de meciuri. Am luat un contor care atunci cand ajunge la  8, adauga  top 8 echipe din stiva pentru castigatori intr o noua lista.
+## Data Structures Used
 
--Pentru cerinta 4 am folosit urmatoarele functii:
-  ~ nodBT* newNode(echipa* data) (care creeaza un nod nou in arbore )
-  ~ nodBT* insert(nodBT* node, echipa* key) (care insereaza nodul in arbore, incat acesta sa fie BST)
-  ~ void inordine(nodBT* node, FILE* f) ( care afiseaza arbore intr o inordine inversa, adica dreapta, radacina, stanga)
+- **Linked List**: Used for managing and organizing teams and players dynamically.
+- **Binary Search Tree (BST)**: Used to rank the top-performing teams.
+- **AVL Tree**: Used for advanced team ranking and level classification.
+  
+## How to Use
 
+### Input Files
 
-  -Pentru cerinta 5 am folosit:
-   ~ int nodeHeight(nodAVL* root) - pentru a calcula inaltimea unui nod
-   ~ int maxim(int a, int b) - pentru a returna maximul
-   ~ nodAVL *RightRotation(nodAVL *z) pentru rotatia la dreapta
-   ~ nodAVL *LeftRotation(nodAVL *z) pentru rotatia la stanga 
-   ~ nodAVL* LRRotation(nodAVL*z); si nodAVL* RLRotation(nodAVL*z); pentru rotatii duble 
-   ~ nodAVL* insertAVL(nodAVL* node, echipa* key)  pentru a insera arborele AVL  care respecta toate cazurile de comparare 
-   ~ void printLevel(nodAVL* root, int level,FILE* f) pentru a afisa echipele de pe un anumit nivel
-   
+1. **fisier1**: Contains information about teams, including the number of players and player data (name and score).
+   - Example format:
+     ```
+     3
+     5
+     TeamA
+     John Doe 100
+     Jane Smith 80
+     ...
+     4
+     TeamB
+     Alice Brown 120
+     Bob Green 90
+     ...
+     ```
+
+2. **fisier0**: Contains task instructions (e.g., whether to display teams, run a round of matches, rank teams, etc.).
+   - Example format:
+     ```
+     1
+     0
+     1
+     1
+     0
+     ```
+
+3. **fisier2**: Output file for storing results (team list, rankings, etc.).
+
 
